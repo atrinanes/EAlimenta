@@ -31,6 +31,7 @@ import lombok.Setter;
 @Getter 
 @Entity
 @Table(name = "TB_ALIMENTO")
+@NoArgsConstructor
 public class Alimento {
 	
 	@Id
