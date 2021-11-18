@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+	<header th:include="_template :: menu('alimento')"></header>
+
+	<div class="container pt-2">
+		<div class="card">
+			<div class="card-body">
+
+				<div class="alert alert-danger" th:if="${message != null}"
+					th:text="${message}"></div>
+					
+				<h2 class="card-title" th:text="'Retirar '+ ${alimento.nome}"></h2>
+				<h4 th:text="#{message.info.quantidadedisponivel} + ${alimento.quantidade}"></h4>
+
+				<form th:action="@{/retirada}" method="post" th:object="${retirada}">
+					<input type="hidden" th:field="*{alimento}" th:value="${alimento}"
+						name="alimento" id="alimento">
+
+					<div class="form-group">
+						<label for="rg">RG</label> <input
+							th:classappend="${#fields.hasErrors('rg')}? invalid" type="text"
+							id="rg" name="rg" th:field="*{rg}"
+							placeholder="Digite o RG da pessoa que está retirando:"
+							required="required" maxlength="12" class="form-control">
+						<span th:errors="*{rg}"></span>
+					</div>
+
+					<div class="form-group">
+						<label for="quantidade">Quantidade</label> <input
+							required="required" type="number" id="quantidadeRetirados"
+							name="quantidadeRetirados" th:field="*{quantidadeRetirados}"
+							class="form-control">
+					</div>
+
+					<div class="form-buttons">
+						<a class="btn btn-secondary" href="/alimento">Voltar</a>
+						<button class="btn btn-success" value="Salvar">Retirar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

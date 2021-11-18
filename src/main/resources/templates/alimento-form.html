@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+	<header th:include="_template :: menu('alimento')"></header>
+
+	<div class="container">
+		<div class="card">
+			<div class="card-body">
+				<h2 class="card-title">Novo alimento</h2>
+
+				<form th:action="@{/alimento}" method="post" th:object="${alimento}">
+				<input type="hidden" id="id" name="id" th:field="*{id}">
+				
+					<div class="form-group">
+						<label class="hide" for="nome">Nome</label> <input
+							th:classappend="${#fields.hasErrors('nome')}? invalid"
+							type="text" id="nome" name="nome" th:field="*{nome}"
+							placeholder="Digite o nome:" required="required" class="form-control"> <span
+							th:errors="*{nome}"></span>
+					</div>
+
+					<div class="form-group">
+						<label class="hide" for="Tipo">Tipo</label> <select id="tipo"
+							th:field="*{tipo}" required="required" class="form-control">
+							<option value="">Selecione</option>
+							<option value="1">Bebidas</option>
+							<option value="2">Cereais e pães</option>
+							<option value="3">Frutas</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="dataVencimento">Data de vencimento</label> <input
+							required="required" type="date" id="dataVencimento"
+							name="dataVencimento" th:field="*{dataVencimento}" class="form-control">
+					</div>
+
+					<div class="form-group">
+						<label for="quantidade">Quantidade</label> <input
+							required="required" type="number" id="quantidade"
+							name="quantidade" th:field="*{quantidade}" class="form-control">
+					</div>
+
+					<div class="form-buttons">
+						<a class="btn btn-secondary" href="/alimento">Voltar</a>
+						<button class="btn btn-success" value="Salvar">Cadastrar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

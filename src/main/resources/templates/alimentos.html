@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+	<header th:include="_template :: menu('alimentos')"></header>
+
+	<div class="container pt-2">
+
+		<h4>Alimentos para retirada</h4>
+
+		<div class="alert alert-success" th:if="${message != null}"
+			th:text="${message}"></div>
+
+		<p th:if="${alimentos.isEmpty()}">Não há alimentos para serem
+			exibidos</p>
+
+		<a class="btn btn-primary mb-2" href="/alimento/novo">Cadastrar</a>
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Nome</th>
+					<th scope="col">Tipo</th>
+					<th scope="col">Quantidade</th>
+					<th scope="col">Vence em</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="alimento : ${alimentos}">
+					<td th:text="${alimento.nome}"></td>
+					<td th:text="${alimento.tipo}">Otto</td>
+					<td th:text="${alimento.quantidade}"></td>
+					<td th:text="${alimento.dataVencimento}"></td>
+					<td><a class="btn btn-sm btn-outline-primary"
+						th:href="@{/alimento/editar/{id}(id=${alimento.id})}">Editar</a> <a
+						class="btn btn-sm btn-outline-warning"
+						th:href="@{/retirada/{id}(id=${alimento.id})}">Retirar</a> <a
+						class="btn btn-sm btn-outline-danger"
+						th:href="@{/alimento/deletar/{id}(id=${alimento.id})}"
+						th:method="delete">Remover</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+	<header th:include="_template :: menu('retiradas')"></header>
+
+	<div class="container pt-2">
+
+		<h4>Retiradas Realizadas</h4>
+
+		<div class="alert alert-success" th:if="${message != null}"
+			th:text="${message}"></div>
+
+		<p th:if="${retiradas.isEmpty()}">Não há retiradas para serem
+			exibidas</p>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">RG Retirada</th>
+					<th scope="col">Alimento</th>
+					<th scope="col">Quantidade</th>
+					<th scope="col">Data da retirada</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="retirada : ${retiradas}">
+					<td th:text="${retirada.rg}"></td>
+					<td th:text="${retirada.alimento.nome}">Otto</td>
+					<td th:text="${retirada.quantidadeRetirados}"></td>
+					<td th:text="${retirada.dataRetirada}"></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+</body>
+</html>
