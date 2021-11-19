@@ -5,7 +5,40 @@
 <header th:include="_template :: menu('home')"></header>
 
 <div class="container p-10"><br/>
-	
+	    <div class="text-center">
+        <h1 class="display-4">E-ALIMENTA</h1>
+        <p><a href="https://docs.microsoft.com/aspnet/core">Desenvolvido com ASP.NET Core</a>.</p>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">E-Alimenta</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Especificações</h6>
+                <p>
+                    O projeto tem como intuito auxiliar na distribuição de alimentos que sobram de escolas da rede pública de ensino, tanto municipal, quanto estadual.
+                    O app e-alimenta tem o intuito de mapear estas sobras de alimentos e bebidas nos, e distribuir às famílias que vivem em situação de risco, já previamente cadastradas pelos sistemas das unidades.
+                    Assim reduzem o desperdício e ainda auxiliam na distribuição de alimentos que podem diminuir a fome.
+                </p>
+                <div class="text-left">
+                    <ul>
+                        <li>Cadastro de alimentos disponíveis para retirada</li>
+                        <li>Listagem dos alimentos disponíveis</li>
+                        <li>Retirada de alimentos disponíveis</li>
+                        <li>Listagem de retiradas de alimentos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Comece por aqui!</h5>
+                <p class="card-text">Cadastre novos alimentos em estoque ou retire os alimentos disponíveis</p>
+                <a href="/alimento/novo" class="card-link">Cadastrar alimento</a>
+                <a href="/alimento" class="card-link">Visualizar alimento a retirar</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
