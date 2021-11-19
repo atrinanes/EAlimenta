@@ -55,7 +55,7 @@ public class ApiRetiradaController {
 		
 		try {
 			
-			Optional<Alimento> alimento = this.alimentoService.buscarPorCodigo(entrada.getId());
+			Optional<Alimento> alimento = this.alimentoService.buscarPorCodigo(entrada.getIdAlimento());
 			
 			if(alimento.isPresent()) {
 				Retirada retirada = new Retirada(entrada, alimento.get());
