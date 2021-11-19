@@ -9,8 +9,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,10 +27,11 @@ import lombok.Setter;
 @Entity
 @Table(name = "TB_ALIMENTO")
 @NoArgsConstructor
+@SequenceGenerator(name="alimento", sequenceName = "SQ_TB_ALIMENTO", allocationSize = 1)
 public class Alimento {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator = "alimento", strategy = GenerationType.SEQUENCE)
 	@Column(name = "id_alimento")
 	private Long id;
 	
