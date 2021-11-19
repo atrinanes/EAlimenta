@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class AlimentoSaidaDto {
+	
+	private Long id;
 
 	private String nome;
 	
@@ -19,6 +21,7 @@ public class AlimentoSaidaDto {
 	private Long quantidade;
 	
 	public AlimentoSaidaDto(Alimento alimento) {
+		this.id = alimento.getId();
 		this.nome = alimento.getNome();
 		this.tipo = alimento.getTipo();
 		this.quantidade = alimento.getQuantidade();

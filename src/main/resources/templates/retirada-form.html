@@ -12,7 +12,7 @@
 					th:text="${message}"></div>
 					
 				<h2 class="card-title" th:text="'Retirar '+ ${alimento.nome}"></h2>
-				<h4 th:text="#{message.info.quantidadedisponivel} + ${alimento.quantidade}"></h4>
+				<h4 th:text="'Quantidade disponível: ' + ${alimento.quantidade}"></h4>
 
 				<form th:action="@{/retirada}" method="post" th:object="${retirada}">
 					<input type="hidden" th:field="*{alimento}" th:value="${alimento}"
