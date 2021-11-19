@@ -78,7 +78,7 @@ public class AlimentoController {
 		return "redirect:/alimento";
 	}
 
-	@GetMapping("/deletar/{id}")
+	@DeleteMapping("/deletar/{id}")
 	public String deletar(@PathVariable("id") Long id, RedirectAttributes redirect) {
 		Alimento alimento = repository.findById(id).get();
 

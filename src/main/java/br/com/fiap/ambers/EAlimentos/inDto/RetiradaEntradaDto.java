@@ -8,8 +8,6 @@ import lombok.Data;
 @Data
 public class RetiradaEntradaDto extends MessagesDto{
 	
-	private Long id;
-	
 	private String rg;
 	
 	private Long quantidadeRetirados;
